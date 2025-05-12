@@ -14,9 +14,37 @@
                 <a href="#" class="text-blue-500 hover:text-blue-600 underline">EDU CONNECT</a>
             </div>
             
-            <a class="bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm rounded-lg font-bold text-white md:flex hidden" href="{{ route('login') }}">
-                Login
-            </a>
+            @guest
+                <a class="bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm rounded-lg font-bold text-white md:flex hidden" href="{{ route('login') }}">
+                    Login
+                </a>
+            @endguest
+
+            @auth
+            <div x-data="{ open: false }" class="relative md:flex hidden items-center">
+                <button @click="open = !open" class="focus:outline-none">
+                    @if ($user->image)
+                        <div class="w-16 h-16 p-1">
+                            <img src="{{ asset('storage/' . $user->image) }}" alt="Foto Profil"
+                            class="w-full h-full rounded-full border-none shadow-lg object-cover">
+                        </div>
+                    @else
+                        <i class="fas fa-user-circle text-[3.1rem] text-blue-600"></i>
+                    @endif
+                </button>
+
+                <div x-show="open" @click.away="open = false" class="absolute right-0 mt-[10rem] w-40 bg-white rounded-md shadow-lg z-50">
+                    <a href="{{ route('pengguna.profile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profil</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+            @endauth
+
 
             <button id="menu-toggle" class="md:hidden text-gray-700">
                 <!-- Hamburger Icon -->
@@ -33,8 +61,20 @@
             <a href="#">EDURISE ACADEMY</a>
             <a href="#">EDU EVENT</a>
             <a href="#" class="text-blue-500 hover:text-blue-600 underline">EDU CONNECT</a>
-            <a class="bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm rounded-lg font-bold text-white flex justify-center items-center w-[10rem]" href="{{ route('login') }}">
-                Login
-            </a>
+            @guest
+                <a class="bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm rounded-lg font-bold text-white flex justify-center items-center w-[10rem]" href="{{ route('login') }}">
+                    Login
+                </a>
+            @endguest
+
+            @auth
+                @if ($user->image)
+                    <img src="{{ asset('storage/' . $user->image) }}" alt="Foto Profil"
+                    class="w-full rounded-full border-none shadow-lg object-cover">
+                @else
+                    <i class="fas fa-user-circle text-[3.1rem] text-blue-600"></i>
+                @endif
+            @endauth
+
         </div>
     </nav>

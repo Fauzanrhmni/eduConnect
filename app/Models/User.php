@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use League\CommonMark\Extension\Mention\Mention;
 
 class User extends Authenticatable
 {
@@ -48,4 +49,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Ubah ke relasi belongsToMany untuk relasi many-to-many
+    public function favoritForums()
+    {
+        return $this->belongsToMany(Forum::class, 'favorit_forums', 'user_id', 'forum_id')->withTimestamps();
+    }
+    
+    public function favoritDiskusis()
+    {
+        return $this->belongsToMany(Diskusi::class, 'favorit_diskusis', 'user_id', 'diskusi_id')->withTimestamps();
+    }
+
+    public function favoritMentorings()
+    {
+        return $this->belongsToMany(Mentoring::class, 'favorit_mentorings', 'user_id', 'mentoring_id')->withTimestamps();
+    }
+
 }

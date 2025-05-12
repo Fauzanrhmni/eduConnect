@@ -55,7 +55,7 @@
     </div>
 
     {{-- Join Forum --}}
-    <section class=" md:w-full px-8 md:px-32 py-10 mt-72 md:mt-32 flex justify-center items-center">
+    <section class="md:w-full px-8 md:px-32 py-10 mt-72 md:mt-32 flex justify-center items-center">
         <div class="flex flex-col md:flex-row justify-between w-full items-center">
             <img src="{{ asset("assets/model-forum.png") }}" alt="" class="rounded-[2rem]" style="box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);">
             <div class="flex flex-col w-full md:w-[35rem] mt-10 md:mt-0">

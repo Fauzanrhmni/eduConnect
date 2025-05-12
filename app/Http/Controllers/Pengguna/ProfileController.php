@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Pengguna;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,20 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
-
-class AdminUserController extends Controller
+class ProfileController extends Controller
 {
-
-    public function index()
-    {
-        $users = User::all();
-        return view('admin.datapengguna', compact('users'));
-    }
 
     public function profile()
     {
         $user = Auth::user();
-        return view('admin.profile', compact('user'));
+        return view('pengguna.profile', compact('user'));
     }
 
     public function updateProfile(Request $request)
@@ -67,5 +60,4 @@ class AdminUserController extends Controller
 
         return back()->with('success', 'Password berhasil diperbarui.');
     }
-
 }

@@ -25,6 +25,10 @@
             scrollbar-width: none;     /* Firefox */
         }
     </style>
+
+    <script src="https://kit.fontawesome.com/b5684de0c6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
 </head>
 <body class="bg-[#F9F9F9] text-black">
 

@@ -39,35 +39,41 @@
                 id="name" 
                 placeholder="Enter your name"
                 class="w-full py-3 px-4 pr-10 border-2 border-gray-400 rounded-2xl focus:border-blue-500 focus:outline-none">
-              <img src="{{ asset("assets/user_regis.svg") }}" class="absolute inset-y-0 right-3 top-3.5 w-5 h-5 pointer-events-none" />
+              <img src="{{ asset("assets/user_regis.svg") }}" class="absolute inset-y-0 right-3 top-2 w-5 h-5 pointer-events-none" />
             </div>
           </div>
 
           {{-- Password --}}
           <div class="mb-4 flex flex-col w-full gap-2">
-            <label for="password" class="font-semibold">Password/label>
+            <label for="password" class="font-semibold">Password</label>
             <div class="relative">
               <input 
                 type="password"
-                name="password" 
-                id="password" 
+                name="password"
+                id="password"
                 placeholder="Enter your password"
                 class="w-full py-3 px-4 pr-10 border-2 border-gray-400 rounded-2xl focus:border-blue-500 focus:outline-none">
-              <img src="{{ asset("assets/password.svg") }}" class="absolute inset-y-0 right-3 top-3.5 w-5 h-5 pointer-events-none" />
+              
+              <button type="button" onclick="togglePassword('password', this)" class="absolute inset-y-0 right-3 text-gray-600">
+                <i class="fas fa-eye" id="icon-password"></i>
+              </button>
             </div>
           </div>
 
-          {{-- Password --}}
+          {{-- Konfirmasi Password --}}
           <div class="mb-4 flex flex-col w-full gap-2">
-            <label for="password_confirmation" class="font-semibold">Konfimasi Password</label>
+            <label for="password_confirmation" class="font-semibold">Konfirmasi Password</label>
             <div class="relative">
               <input 
                 type="password"
-                name="password_confirmation" 
-                id="password_confirmation" 
+                name="password_confirmation"
+                id="password_confirmation"
                 placeholder="Confirm your password"
                 class="w-full py-3 px-4 pr-10 border-2 border-gray-400 rounded-2xl focus:border-blue-500 focus:outline-none">
-              <img src="{{ asset("assets/password.svg") }}" class="absolute inset-y-0 right-3 top-3.5 w-5 h-5 pointer-events-none" />
+              
+              <button type="button" onclick="togglePassword('password_confirmation', this)" class="absolute inset-y-0 right-3 text-gray-600">
+                <i class="fas fa-eye" id="icon-password_confirmation"></i>
+              </button>
             </div>
           </div>
 

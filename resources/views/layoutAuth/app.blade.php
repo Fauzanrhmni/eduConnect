@@ -25,6 +25,8 @@
             scrollbar-width: none;     /* Firefox */
         }
     </style>
+
+    <script src="https://kit.fontawesome.com/b5684de0c6.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -67,7 +69,25 @@
     toggleBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('i');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
   </script>
+  <script>
+            
+          </script>
 
 </body>
 </html>

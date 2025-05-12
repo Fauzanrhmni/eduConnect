@@ -23,14 +23,15 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        $user = User::create([
+        // Simpan user baru
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 1 // default mahasiswa
+            'role' => 1 // default role pengguna
         ]);
 
-        Auth::login($user);
-        return redirect()->intended(route('pengguna.dashboard'));
+        // Redirect ke login dengan pesan sukses
+        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
 }

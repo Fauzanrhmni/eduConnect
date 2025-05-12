@@ -15,20 +15,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // Seeder untuk Admin
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password123'), // Gantilah dengan password yang sesuai
-            'role' => 0, // Admin
-            'image' => 'admin_image.png',
-            'keahlian_jurusan' => 'Manajemen',
-        ]);
-
         // Seeder untuk Mahasiswa
         User::create([
             'name' => 'Mahasiswa User',
-            'email' => 'mahasiswa@example.com',
+            'email' => 'mahasiswa@gmail.com',
             'password' => Hash::make('password123'),
             'role' => 1, // Mahasiswa
             'image' => 'mahasiswa_image.png',
@@ -38,7 +28,7 @@ class UsersTableSeeder extends Seeder
         // Seeder untuk Mentor
         User::create([
             'name' => 'Mentor User',
-            'email' => 'mentor@example.com',
+            'email' => 'mentor@gmail.com',
             'password' => Hash::make('password123'),
             'role' => 2, // Mentor
             'image' => 'mentor_image.png',

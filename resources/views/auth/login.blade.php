@@ -15,6 +15,13 @@
         
         <form method="POST" action="{{ route('login') }}" class="mt-10 w-full px-0 md:px-5">
           @csrf
+
+          @if(session('success'))
+            <div class="bg-green-100 text-green-800 p-3 rounded text-base mb-3">
+                {{ session('success') }}
+            </div>
+          @endif
+
           {{-- Email --}}
           <div class="mb-4 flex flex-col w-full gap-2">
             <label for="email" class="font-semibold">Email</label>
@@ -39,9 +46,14 @@
                 id="password" 
                 placeholder="Enter your password"
                 class="w-full py-3 px-4 pr-10 border-2 border-gray-400 rounded-2xl focus:border-blue-500 focus:outline-none">
-              <img src="{{ asset("assets/password.svg") }}" class="absolute inset-y-0 right-3 top-3.5 w-5 h-5 pointer-events-none" />
+              
+              <button type="button" onclick="togglePassword('password', this)" 
+                      class="absolute inset-y-0 right-3 text-gray-600">
+                <i class="fas fa-eye" id="icon-password"></i>
+              </button>
             </div>
           </div>
+
 
           <div class="w-full flex justify-end items-center mb-4">
             <a class="text-black hover:underline text-base cursor-pointer">Forgot Password?</a>

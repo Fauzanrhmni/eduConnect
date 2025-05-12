@@ -28,6 +28,6 @@ class RoleManager
         // Redirect fallback
         return $authUserRole === 0
             ? redirect()->route('admin.dashboard')
-            : redirect()->route('pengguna.dashboard');
+            : redirect()->route('pengguna.forum');
     }
 }

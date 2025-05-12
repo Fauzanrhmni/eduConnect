@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Forum extends Model
+class Mentoring extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'judul',
-        'kategori_forum',
-        'user_id', // Pastikan sudah disesuaikan dengan user yang mengelola forum
-        'is_favorit',
         'deskripsi',
+        'user_id', // Pastikan sudah disesuaikan dengan user yang mengelola forum
+        'keahlian',
+        'total_peserta',
+        'is_favorit',
+        'status',
         'link',
     ];
 
@@ -23,10 +25,10 @@ class Forum extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Relasi Many-to-Many dengan User (Favorit Forum)
+     // Relasi Many-to-Many dengan User (Favorit Forum)
     public function favoritOleh()
     {
-        return $this->belongsToMany(User::class, 'favorit_forums', 'forum_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'favorit_mentorings', 'mentoring_id', 'user_id')->withTimestamps();
     }
 
 }

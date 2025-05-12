@@ -1,5 +1,5 @@
 
-    <footer class="flex flex-col justify-center items-center py-5 px-8 md:px-32 mt-32">
+    <footer class="flex flex-col justify-center items-center py-5 px-8 md:px-32 mt-32 lg:mt-0 bg-white">
         <div class="flex flex-col md:flex-row justify-between w-full gap-5 md:gap-0">
             <div class="flex flex-col gap-5 mb-5 md:mb-0">
                 <div class="flex flex-row gap-2 items-center">
